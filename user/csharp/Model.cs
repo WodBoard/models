@@ -34,7 +34,7 @@ namespace user {
             "CRIQCghwYXNzd29yZBgDIAEoCRIRCglmaXJzdG5hbWUYBCABKAkSEAoIbGFz",
             "dG5hbWUYBSABKAkSLAoIYmlydGhkYXkYBiABKAsyGi5nb29nbGUucHJvdG9i",
             "dWYuVGltZXN0YW1wEhMKC3BpY3R1cmVfdXJsGAcgASgJEg4KBmhlaWdodBgI",
-            "IAEoARIOCgZ3ZWlnaHQYCSABKAFCDVoEdXNlcqoCBHVzZXJiBnByb3RvMw=="));
+            "IAEoAhIOCgZ3ZWlnaHQYCSABKAJCDVoEdXNlcqoCBHVzZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -656,9 +656,9 @@ namespace user {
 
     /// <summary>Field number for the "height" field.</summary>
     public const int HeightFieldNumber = 8;
-    private double height_;
+    private float height_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public double Height {
+    public float Height {
       get { return height_; }
       set {
         height_ = value;
@@ -667,9 +667,9 @@ namespace user {
 
     /// <summary>Field number for the "weight" field.</summary>
     public const int WeightFieldNumber = 9;
-    private double weight_;
+    private float weight_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public double Weight {
+    public float Weight {
       get { return weight_; }
       set {
         weight_ = value;
@@ -696,8 +696,8 @@ namespace user {
       if (Lastname != other.Lastname) return false;
       if (!object.Equals(Birthday, other.Birthday)) return false;
       if (PictureUrl != other.PictureUrl) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Height, other.Height)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Weight, other.Weight)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Height, other.Height)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Weight, other.Weight)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -711,8 +711,8 @@ namespace user {
       if (Lastname.Length != 0) hash ^= Lastname.GetHashCode();
       if (birthday_ != null) hash ^= Birthday.GetHashCode();
       if (PictureUrl.Length != 0) hash ^= PictureUrl.GetHashCode();
-      if (Height != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Height);
-      if (Weight != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Weight);
+      if (Height != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Height);
+      if (Weight != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Weight);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -754,13 +754,13 @@ namespace user {
         output.WriteRawTag(58);
         output.WriteString(PictureUrl);
       }
-      if (Height != 0D) {
-        output.WriteRawTag(65);
-        output.WriteDouble(Height);
+      if (Height != 0F) {
+        output.WriteRawTag(69);
+        output.WriteFloat(Height);
       }
-      if (Weight != 0D) {
-        output.WriteRawTag(73);
-        output.WriteDouble(Weight);
+      if (Weight != 0F) {
+        output.WriteRawTag(77);
+        output.WriteFloat(Weight);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -791,11 +791,11 @@ namespace user {
       if (PictureUrl.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(PictureUrl);
       }
-      if (Height != 0D) {
-        size += 1 + 8;
+      if (Height != 0F) {
+        size += 1 + 4;
       }
-      if (Weight != 0D) {
-        size += 1 + 8;
+      if (Weight != 0F) {
+        size += 1 + 4;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -832,10 +832,10 @@ namespace user {
       if (other.PictureUrl.Length != 0) {
         PictureUrl = other.PictureUrl;
       }
-      if (other.Height != 0D) {
+      if (other.Height != 0F) {
         Height = other.Height;
       }
-      if (other.Weight != 0D) {
+      if (other.Weight != 0F) {
         Weight = other.Weight;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -880,12 +880,12 @@ namespace user {
             PictureUrl = input.ReadString();
             break;
           }
-          case 65: {
-            Height = input.ReadDouble();
+          case 69: {
+            Height = input.ReadFloat();
             break;
           }
-          case 73: {
-            Weight = input.ReadDouble();
+          case 77: {
+            Weight = input.ReadFloat();
             break;
           }
         }

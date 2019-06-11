@@ -32,6 +32,6 @@ message Signup {
     string lastname = 5;
     google.protobuf.Timestamp birthday = 6;
     string picture_url = 7;
-    double height = 8;
-    double weight = 9;
+    float height = 8;
+    float weight = 9;
 }
