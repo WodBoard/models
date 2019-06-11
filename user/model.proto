@@ -2,26 +2,36 @@ syntax = "proto3";
 
 package user;
 
-/*import "google/protobuf/empty.proto";
-import "google/protobuf/timestamp.proto";*/
+//import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "user";
 option csharp_namespace = "user";
 
 message User {
-    string username = 1;
-    string firstname = 2;
-    string lastname = 3;
+    string email = 1;
+    string username = 2;
+    string firstname = 3;
+    string lastname = 4;
+    google.protobuf.Timestamp birthday = 5;
+    string picture_url = 6;
+    double height = 7;
+    double weight = 8;
 }
 
 message Login {
-    string username = 1;
+    string email = 1;
     string password = 2;
 }
 
 message Signup {
-    string username = 1;
-    string password = 2;
-    string firstname = 3;
-    string lastname = 4;
+    string email = 1;
+    string username = 2;
+    string password = 3;
+    string firstname = 4;
+    string lastname = 5;
+    google.protobuf.Timestamp birthday = 6;
+    string picture_url = 7;
+    double height = 8;
+    double weight = 9;
 }
