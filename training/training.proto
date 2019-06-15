@@ -9,15 +9,27 @@ option go_package = "training";
 option csharp_namespace = "training";
 
 enum MovementType {
-    PUSHUPS = 0;
-    PULLUPS = 1;
+    WEIGHTLIFTING = 0;
+    GYM = 1;
+	CARDIO = 2;
+}
+
+enum TrainingType {
+	FOR_TIME = 0;
+	AMRAP = 1;
+	EMOM = 2;
+	TABATA = 3;
+	FOR_QUALITY = 4;
+	AFSAP = 5;
 }
 
 message Exercise {
-    MovementType movement = 1;
-    int64 duration = 2;
+    MovementType Movement = 1;
+    string Name;
 }
 
 message Training {
+	TrainingType Type;
     repeated Exercise exercises = 1;
+	int36 TimeCap;
 };
