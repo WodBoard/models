@@ -2,9 +2,6 @@ syntax = "proto3";
 
 package training;
 
-/*import "google/protobuf/empty.proto";
-import "google/protobuf/timestamp.proto";*/
-
 option go_package = "training";
 option csharp_namespace = "training";
 
