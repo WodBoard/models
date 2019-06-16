@@ -24,12 +24,12 @@ enum TrainingType {
 }
 
 message Exercise {
-    MovementType Movement = 1;
-    string Name;
+    MovementType movement = 1;
+    string name = 2;
 }
 
 message Training {
-	TrainingType Type;
-    repeated Exercise exercises = 1;
-	int36 TimeCap;
+	TrainingType type = 1;
+    repeated Exercise exercises = 2;
+	int32 time_cap = 3;
 };
