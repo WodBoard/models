@@ -26,7 +26,8 @@ message Exercise {
 }
 
 message Training {
-	TrainingType type = 1;
-    repeated Exercise exercises = 2;
-	int32 time_cap = 3;
+	string name = 1;
+	TrainingType type = 2;
+	repeated Exercise exercises = 3;
+	int32 time_cap = 4;
 };

@@ -26,18 +26,18 @@ namespace training {
           string.Concat(
             "Cg50cmFpbmluZy5wcm90bxIIdHJhaW5pbmciQgoIRXhlcmNpc2USKAoIbW92",
             "ZW1lbnQYASABKA4yFi50cmFpbmluZy5Nb3ZlbWVudFR5cGUSDAoEbmFtZRgC",
-            "IAEoCSJpCghUcmFpbmluZxIkCgR0eXBlGAEgASgOMhYudHJhaW5pbmcuVHJh",
-            "aW5pbmdUeXBlEiUKCWV4ZXJjaXNlcxgCIAMoCzISLnRyYWluaW5nLkV4ZXJj",
-            "aXNlEhAKCHRpbWVfY2FwGAMgASgFKjYKDE1vdmVtZW50VHlwZRIRCg1XRUlH",
-            "SFRMSUZUSU5HEAASBwoDR1lNEAESCgoGQ0FSRElPEAIqWQoMVHJhaW5pbmdU",
-            "eXBlEgwKCEZPUl9USU1FEAASCQoFQU1SQVAQARIICgRFTU9NEAISCgoGVEFC",
-            "QVRBEAMSDwoLRk9SX1FVQUxJVFkQBBIJCgVBRlNBUBAFQhVaCHRyYWluaW5n",
-            "qgIIdHJhaW5pbmdiBnByb3RvMw=="));
+            "IAEoCSJ3CghUcmFpbmluZxIMCgRuYW1lGAEgASgJEiQKBHR5cGUYAiABKA4y",
+            "Fi50cmFpbmluZy5UcmFpbmluZ1R5cGUSJQoJZXhlcmNpc2VzGAMgAygLMhIu",
+            "dHJhaW5pbmcuRXhlcmNpc2USEAoIdGltZV9jYXAYBCABKAUqNgoMTW92ZW1l",
+            "bnRUeXBlEhEKDVdFSUdIVExJRlRJTkcQABIHCgNHWU0QARIKCgZDQVJESU8Q",
+            "AipZCgxUcmFpbmluZ1R5cGUSDAoIRk9SX1RJTUUQABIJCgVBTVJBUBABEggK",
+            "BEVNT00QAhIKCgZUQUJBVEEQAxIPCgtGT1JfUVVBTElUWRAEEgkKBUFGU0FQ",
+            "EAVCFVoIdHJhaW5pbmeqAgh0cmFpbmluZ2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::training.MovementType), typeof(global::training.TrainingType), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::training.Exercise), global::training.Exercise.Parser, new[]{ "Movement", "Name" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::training.Training), global::training.Training.Parser, new[]{ "Type", "Exercises", "TimeCap" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::training.Training), global::training.Training.Parser, new[]{ "Name", "Type", "Exercises", "TimeCap" }, null, null, null)
           }));
     }
     #endregion
@@ -244,6 +244,7 @@ namespace training {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Training(Training other) : this() {
+      name_ = other.name_;
       type_ = other.type_;
       exercises_ = other.exercises_.Clone();
       timeCap_ = other.timeCap_;
@@ -255,8 +256,19 @@ namespace training {
       return new Training(this);
     }
 
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "type" field.</summary>
-    public const int TypeFieldNumber = 1;
+    public const int TypeFieldNumber = 2;
     private global::training.TrainingType type_ = 0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::training.TrainingType Type {
@@ -267,9 +279,9 @@ namespace training {
     }
 
     /// <summary>Field number for the "exercises" field.</summary>
-    public const int ExercisesFieldNumber = 2;
+    public const int ExercisesFieldNumber = 3;
     private static readonly pb::FieldCodec<global::training.Exercise> _repeated_exercises_codec
-        = pb::FieldCodec.ForMessage(18, global::training.Exercise.Parser);
+        = pb::FieldCodec.ForMessage(26, global::training.Exercise.Parser);
     private readonly pbc::RepeatedField<global::training.Exercise> exercises_ = new pbc::RepeatedField<global::training.Exercise>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::training.Exercise> Exercises {
@@ -277,7 +289,7 @@ namespace training {
     }
 
     /// <summary>Field number for the "time_cap" field.</summary>
-    public const int TimeCapFieldNumber = 3;
+    public const int TimeCapFieldNumber = 4;
     private int timeCap_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int TimeCap {
@@ -300,6 +312,7 @@ namespace training {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Name != other.Name) return false;
       if (Type != other.Type) return false;
       if(!exercises_.Equals(other.exercises_)) return false;
       if (TimeCap != other.TimeCap) return false;
@@ -309,6 +322,7 @@ namespace training {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Type != 0) hash ^= Type.GetHashCode();
       hash ^= exercises_.GetHashCode();
       if (TimeCap != 0) hash ^= TimeCap.GetHashCode();
@@ -325,13 +339,17 @@ namespace training {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
       if (Type != 0) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(16);
         output.WriteEnum((int) Type);
       }
       exercises_.WriteTo(output, _repeated_exercises_codec);
       if (TimeCap != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(32);
         output.WriteInt32(TimeCap);
       }
       if (_unknownFields != null) {
@@ -342,6 +360,9 @@ namespace training {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
       if (Type != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
@@ -359,6 +380,9 @@ namespace training {
     public void MergeFrom(Training other) {
       if (other == null) {
         return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
       }
       if (other.Type != 0) {
         Type = other.Type;
@@ -378,15 +402,19 @@ namespace training {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+          case 16: {
             type_ = (global::training.TrainingType) input.ReadEnum();
             break;
           }
-          case 18: {
+          case 26: {
             exercises_.AddEntriesFrom(input, _repeated_exercises_codec);
             break;
           }
-          case 24: {
+          case 32: {
             TimeCap = input.ReadInt32();
             break;
           }
