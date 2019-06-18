@@ -31,3 +31,7 @@ message Training {
 	repeated Exercise exercises = 3;
 	int32 time_cap = 4;
 };
+
+message DeleteTrainingRequest {
+	string name = 1;
+}

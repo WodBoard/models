@@ -28,16 +28,18 @@ namespace training {
             "ZW1lbnQYASABKA4yFi50cmFpbmluZy5Nb3ZlbWVudFR5cGUSDAoEbmFtZRgC",
             "IAEoCSJ3CghUcmFpbmluZxIMCgRuYW1lGAEgASgJEiQKBHR5cGUYAiABKA4y",
             "Fi50cmFpbmluZy5UcmFpbmluZ1R5cGUSJQoJZXhlcmNpc2VzGAMgAygLMhIu",
-            "dHJhaW5pbmcuRXhlcmNpc2USEAoIdGltZV9jYXAYBCABKAUqNgoMTW92ZW1l",
-            "bnRUeXBlEhEKDVdFSUdIVExJRlRJTkcQABIHCgNHWU0QARIKCgZDQVJESU8Q",
-            "AipZCgxUcmFpbmluZ1R5cGUSDAoIRk9SX1RJTUUQABIJCgVBTVJBUBABEggK",
-            "BEVNT00QAhIKCgZUQUJBVEEQAxIPCgtGT1JfUVVBTElUWRAEEgkKBUFGU0FQ",
-            "EAVCFVoIdHJhaW5pbmeqAgh0cmFpbmluZ2IGcHJvdG8z"));
+            "dHJhaW5pbmcuRXhlcmNpc2USEAoIdGltZV9jYXAYBCABKAUiJQoVRGVsZXRl",
+            "VHJhaW5pbmdSZXF1ZXN0EgwKBG5hbWUYASABKAkqNgoMTW92ZW1lbnRUeXBl",
+            "EhEKDVdFSUdIVExJRlRJTkcQABIHCgNHWU0QARIKCgZDQVJESU8QAipZCgxU",
+            "cmFpbmluZ1R5cGUSDAoIRk9SX1RJTUUQABIJCgVBTVJBUBABEggKBEVNT00Q",
+            "AhIKCgZUQUJBVEEQAxIPCgtGT1JfUVVBTElUWRAEEgkKBUFGU0FQEAVCFVoI",
+            "dHJhaW5pbmeqAgh0cmFpbmluZ2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::training.MovementType), typeof(global::training.TrainingType), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::training.Exercise), global::training.Exercise.Parser, new[]{ "Movement", "Name" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::training.Training), global::training.Training.Parser, new[]{ "Name", "Type", "Exercises", "TimeCap" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::training.Training), global::training.Training.Parser, new[]{ "Name", "Type", "Exercises", "TimeCap" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::training.DeleteTrainingRequest), global::training.DeleteTrainingRequest.Parser, new[]{ "Name" }, null, null, null)
           }));
     }
     #endregion
@@ -416,6 +418,135 @@ namespace training {
           }
           case 32: {
             TimeCap = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class DeleteTrainingRequest : pb::IMessage<DeleteTrainingRequest> {
+    private static readonly pb::MessageParser<DeleteTrainingRequest> _parser = new pb::MessageParser<DeleteTrainingRequest>(() => new DeleteTrainingRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<DeleteTrainingRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::training.TrainingReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DeleteTrainingRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DeleteTrainingRequest(DeleteTrainingRequest other) : this() {
+      name_ = other.name_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DeleteTrainingRequest Clone() {
+      return new DeleteTrainingRequest(this);
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as DeleteTrainingRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(DeleteTrainingRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(DeleteTrainingRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Name = input.ReadString();
             break;
           }
         }
