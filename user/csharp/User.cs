@@ -25,22 +25,23 @@ namespace user {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cgp1c2VyLnByb3RvEgR1c2VyGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1w",
-            "LnByb3RvIq8BCgRVc2VyEg0KBWVtYWlsGAEgASgJEhAKCHVzZXJuYW1lGAIg",
+            "LnByb3RvIscBCgRVc2VyEg0KBWVtYWlsGAEgASgJEhAKCHVzZXJuYW1lGAIg",
             "ASgJEhEKCWZpcnN0bmFtZRgDIAEoCRIQCghsYXN0bmFtZRgEIAEoCRIsCghi",
             "aXJ0aGRheRgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASEwoL",
             "cGljdHVyZV91cmwYBiABKAkSDgoGaGVpZ2h0GAcgASgBEg4KBndlaWdodBgI",
-            "IAEoASIoCgVMb2dpbhINCgVlbWFpbBgBIAEoCRIQCghwYXNzd29yZBgCIAEo",
-            "CSLDAQoGU2lnbnVwEg0KBWVtYWlsGAEgASgJEhAKCHVzZXJuYW1lGAIgASgJ",
-            "EhAKCHBhc3N3b3JkGAMgASgJEhEKCWZpcnN0bmFtZRgEIAEoCRIQCghsYXN0",
-            "bmFtZRgFIAEoCRIsCghiaXJ0aGRheRgGIAEoCzIaLmdvb2dsZS5wcm90b2J1",
-            "Zi5UaW1lc3RhbXASEwoLcGljdHVyZV91cmwYByABKAkSDgoGaGVpZ2h0GAgg",
-            "ASgCEg4KBndlaWdodBgJIAEoAkINWgR1c2VyqgIEdXNlcmIGcHJvdG8z"));
+            "IAEoARIWCg5hZmZpbGlhdGVkX2JveBgJIAEoCSIoCgVMb2dpbhINCgVlbWFp",
+            "bBgBIAEoCRIQCghwYXNzd29yZBgCIAEoCSLbAQoGU2lnbnVwEg0KBWVtYWls",
+            "GAEgASgJEhAKCHVzZXJuYW1lGAIgASgJEhAKCHBhc3N3b3JkGAMgASgJEhEK",
+            "CWZpcnN0bmFtZRgEIAEoCRIQCghsYXN0bmFtZRgFIAEoCRIsCghiaXJ0aGRh",
+            "eRgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASEwoLcGljdHVy",
+            "ZV91cmwYByABKAkSDgoGaGVpZ2h0GAggASgCEg4KBndlaWdodBgJIAEoAhIW",
+            "Cg5hZmZpbGlhdGVkX2JveBgKIAEoCUINWgR1c2VyqgIEdXNlcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::user.User), global::user.User.Parser, new[]{ "Email", "Username", "Firstname", "Lastname", "Birthday", "PictureUrl", "Height", "Weight" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::user.User), global::user.User.Parser, new[]{ "Email", "Username", "Firstname", "Lastname", "Birthday", "PictureUrl", "Height", "Weight", "AffiliatedBox" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::user.Login), global::user.Login.Parser, new[]{ "Email", "Password" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::user.Signup), global::user.Signup.Parser, new[]{ "Email", "Username", "Password", "Firstname", "Lastname", "Birthday", "PictureUrl", "Height", "Weight" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::user.Signup), global::user.Signup.Parser, new[]{ "Email", "Username", "Password", "Firstname", "Lastname", "Birthday", "PictureUrl", "Height", "Weight", "AffiliatedBox" }, null, null, null)
           }));
     }
     #endregion
@@ -80,6 +81,7 @@ namespace user {
       pictureUrl_ = other.pictureUrl_;
       height_ = other.height_;
       weight_ = other.weight_;
+      affiliatedBox_ = other.affiliatedBox_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -176,6 +178,17 @@ namespace user {
       }
     }
 
+    /// <summary>Field number for the "affiliated_box" field.</summary>
+    public const int AffiliatedBoxFieldNumber = 9;
+    private string affiliatedBox_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string AffiliatedBox {
+      get { return affiliatedBox_; }
+      set {
+        affiliatedBox_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as User);
@@ -197,6 +210,7 @@ namespace user {
       if (PictureUrl != other.PictureUrl) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Height, other.Height)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Weight, other.Weight)) return false;
+      if (AffiliatedBox != other.AffiliatedBox) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -211,6 +225,7 @@ namespace user {
       if (PictureUrl.Length != 0) hash ^= PictureUrl.GetHashCode();
       if (Height != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Height);
       if (Weight != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Weight);
+      if (AffiliatedBox.Length != 0) hash ^= AffiliatedBox.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -256,6 +271,10 @@ namespace user {
         output.WriteRawTag(65);
         output.WriteDouble(Weight);
       }
+      if (AffiliatedBox.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(AffiliatedBox);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -287,6 +306,9 @@ namespace user {
       }
       if (Weight != 0D) {
         size += 1 + 8;
+      }
+      if (AffiliatedBox.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(AffiliatedBox);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -325,6 +347,9 @@ namespace user {
       }
       if (other.Weight != 0D) {
         Weight = other.Weight;
+      }
+      if (other.AffiliatedBox.Length != 0) {
+        AffiliatedBox = other.AffiliatedBox;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -370,6 +395,10 @@ namespace user {
           }
           case 65: {
             Weight = input.ReadDouble();
+            break;
+          }
+          case 74: {
+            AffiliatedBox = input.ReadString();
             break;
           }
         }
@@ -569,6 +598,7 @@ namespace user {
       pictureUrl_ = other.pictureUrl_;
       height_ = other.height_;
       weight_ = other.weight_;
+      affiliatedBox_ = other.affiliatedBox_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -676,6 +706,17 @@ namespace user {
       }
     }
 
+    /// <summary>Field number for the "affiliated_box" field.</summary>
+    public const int AffiliatedBoxFieldNumber = 10;
+    private string affiliatedBox_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string AffiliatedBox {
+      get { return affiliatedBox_; }
+      set {
+        affiliatedBox_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Signup);
@@ -698,6 +739,7 @@ namespace user {
       if (PictureUrl != other.PictureUrl) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Height, other.Height)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Weight, other.Weight)) return false;
+      if (AffiliatedBox != other.AffiliatedBox) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -713,6 +755,7 @@ namespace user {
       if (PictureUrl.Length != 0) hash ^= PictureUrl.GetHashCode();
       if (Height != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Height);
       if (Weight != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Weight);
+      if (AffiliatedBox.Length != 0) hash ^= AffiliatedBox.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -762,6 +805,10 @@ namespace user {
         output.WriteRawTag(77);
         output.WriteFloat(Weight);
       }
+      if (AffiliatedBox.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(AffiliatedBox);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -796,6 +843,9 @@ namespace user {
       }
       if (Weight != 0F) {
         size += 1 + 4;
+      }
+      if (AffiliatedBox.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(AffiliatedBox);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -837,6 +887,9 @@ namespace user {
       }
       if (other.Weight != 0F) {
         Weight = other.Weight;
+      }
+      if (other.AffiliatedBox.Length != 0) {
+        AffiliatedBox = other.AffiliatedBox;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -886,6 +939,10 @@ namespace user {
           }
           case 77: {
             Weight = input.ReadFloat();
+            break;
+          }
+          case 82: {
+            AffiliatedBox = input.ReadString();
             break;
           }
         }

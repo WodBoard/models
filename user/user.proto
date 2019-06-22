@@ -16,6 +16,7 @@ message User {
     string picture_url = 6;
     double height = 7;
     double weight = 8;
+    string affiliated_box = 9;
 }
 
 message Login {
@@ -33,4 +34,5 @@ message Signup {
     string picture_url = 7;
     float height = 8;
     float weight = 9;
+    string affiliated_box = 10;
 }
