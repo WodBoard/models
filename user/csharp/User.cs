@@ -24,20 +24,18 @@ namespace user {
     static UserReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgp1c2VyLnByb3RvEgR1c2VyGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1w",
-            "LnByb3RvIrUBCgRVc2VyEg0KBWVtYWlsGAEgASgJEhEKCWZpcnN0bmFtZRgC",
-            "IAEoCRIQCghsYXN0bmFtZRgDIAEoCRIsCghiaXJ0aGRheRgEIAEoCzIaLmdv",
-            "b2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASEwoLcGljdHVyZV91cmwYBiABKAkS",
-            "DgoGaGVpZ2h0GAcgASgBEg4KBndlaWdodBgIIAEoARIWCg5hZmZpbGlhdGVk",
-            "X2JveBgJIAEoCSIoCgVMb2dpbhINCgVlbWFpbBgBIAEoCRIQCghwYXNzd29y",
-            "ZBgCIAEoCSLbAQoGU2lnbnVwEg0KBWVtYWlsGAEgASgJEhAKCHVzZXJuYW1l",
-            "GAIgASgJEhAKCHBhc3N3b3JkGAMgASgJEhEKCWZpcnN0bmFtZRgEIAEoCRIQ",
-            "CghsYXN0bmFtZRgFIAEoCRIsCghiaXJ0aGRheRgGIAEoCzIaLmdvb2dsZS5w",
-            "cm90b2J1Zi5UaW1lc3RhbXASEwoLcGljdHVyZV91cmwYByABKAkSDgoGaGVp",
-            "Z2h0GAggASgCEg4KBndlaWdodBgJIAEoAhIWCg5hZmZpbGlhdGVkX2JveBgK",
-            "IAEoCUINWgR1c2VyqgIEdXNlcmIGcHJvdG8z"));
+            "Cgp1c2VyLnByb3RvEgR1c2VyIpkBCgRVc2VyEg0KBWVtYWlsGAEgASgJEhEK",
+            "CWZpcnN0bmFtZRgCIAEoCRIQCghsYXN0bmFtZRgDIAEoCRIQCghiaXJ0aGRh",
+            "eRgEIAEoCRITCgtwaWN0dXJlX3VybBgGIAEoCRIOCgZoZWlnaHQYByABKAES",
+            "DgoGd2VpZ2h0GAggASgBEhYKDmFmZmlsaWF0ZWRfYm94GAkgASgJIigKBUxv",
+            "Z2luEg0KBWVtYWlsGAEgASgJEhAKCHBhc3N3b3JkGAIgASgJIr8BCgZTaWdu",
+            "dXASDQoFZW1haWwYASABKAkSEAoIdXNlcm5hbWUYAiABKAkSEAoIcGFzc3dv",
+            "cmQYAyABKAkSEQoJZmlyc3RuYW1lGAQgASgJEhAKCGxhc3RuYW1lGAUgASgJ",
+            "EhAKCGJpcnRoZGF5GAYgASgJEhMKC3BpY3R1cmVfdXJsGAcgASgJEg4KBmhl",
+            "aWdodBgIIAEoAhIOCgZ3ZWlnaHQYCSABKAISFgoOYWZmaWxpYXRlZF9ib3gY",
+            "CiABKAlCDVoEdXNlcqoCBHVzZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
+          new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::user.User), global::user.User.Parser, new[]{ "Email", "Firstname", "Lastname", "Birthday", "PictureUrl", "Height", "Weight", "AffiliatedBox" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::user.Login), global::user.Login.Parser, new[]{ "Email", "Password" }, null, null, null),
@@ -76,7 +74,7 @@ namespace user {
       email_ = other.email_;
       firstname_ = other.firstname_;
       lastname_ = other.lastname_;
-      birthday_ = other.birthday_ != null ? other.birthday_.Clone() : null;
+      birthday_ = other.birthday_;
       pictureUrl_ = other.pictureUrl_;
       height_ = other.height_;
       weight_ = other.weight_;
@@ -124,12 +122,12 @@ namespace user {
 
     /// <summary>Field number for the "birthday" field.</summary>
     public const int BirthdayFieldNumber = 4;
-    private global::Google.Protobuf.WellKnownTypes.Timestamp birthday_;
+    private string birthday_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Google.Protobuf.WellKnownTypes.Timestamp Birthday {
+    public string Birthday {
       get { return birthday_; }
       set {
-        birthday_ = value;
+        birthday_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -193,7 +191,7 @@ namespace user {
       if (Email != other.Email) return false;
       if (Firstname != other.Firstname) return false;
       if (Lastname != other.Lastname) return false;
-      if (!object.Equals(Birthday, other.Birthday)) return false;
+      if (Birthday != other.Birthday) return false;
       if (PictureUrl != other.PictureUrl) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Height, other.Height)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Weight, other.Weight)) return false;
@@ -207,7 +205,7 @@ namespace user {
       if (Email.Length != 0) hash ^= Email.GetHashCode();
       if (Firstname.Length != 0) hash ^= Firstname.GetHashCode();
       if (Lastname.Length != 0) hash ^= Lastname.GetHashCode();
-      if (birthday_ != null) hash ^= Birthday.GetHashCode();
+      if (Birthday.Length != 0) hash ^= Birthday.GetHashCode();
       if (PictureUrl.Length != 0) hash ^= PictureUrl.GetHashCode();
       if (Height != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Height);
       if (Weight != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Weight);
@@ -237,9 +235,9 @@ namespace user {
         output.WriteRawTag(26);
         output.WriteString(Lastname);
       }
-      if (birthday_ != null) {
+      if (Birthday.Length != 0) {
         output.WriteRawTag(34);
-        output.WriteMessage(Birthday);
+        output.WriteString(Birthday);
       }
       if (PictureUrl.Length != 0) {
         output.WriteRawTag(50);
@@ -274,8 +272,8 @@ namespace user {
       if (Lastname.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Lastname);
       }
-      if (birthday_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Birthday);
+      if (Birthday.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Birthday);
       }
       if (PictureUrl.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(PictureUrl);
@@ -309,11 +307,8 @@ namespace user {
       if (other.Lastname.Length != 0) {
         Lastname = other.Lastname;
       }
-      if (other.birthday_ != null) {
-        if (birthday_ == null) {
-          birthday_ = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-        }
-        Birthday.MergeFrom(other.Birthday);
+      if (other.Birthday.Length != 0) {
+        Birthday = other.Birthday;
       }
       if (other.PictureUrl.Length != 0) {
         PictureUrl = other.PictureUrl;
@@ -351,10 +346,7 @@ namespace user {
             break;
           }
           case 34: {
-            if (birthday_ == null) {
-              birthday_ = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(birthday_);
+            Birthday = input.ReadString();
             break;
           }
           case 50: {
@@ -566,7 +558,7 @@ namespace user {
       password_ = other.password_;
       firstname_ = other.firstname_;
       lastname_ = other.lastname_;
-      birthday_ = other.birthday_ != null ? other.birthday_.Clone() : null;
+      birthday_ = other.birthday_;
       pictureUrl_ = other.pictureUrl_;
       height_ = other.height_;
       weight_ = other.weight_;
@@ -636,12 +628,12 @@ namespace user {
 
     /// <summary>Field number for the "birthday" field.</summary>
     public const int BirthdayFieldNumber = 6;
-    private global::Google.Protobuf.WellKnownTypes.Timestamp birthday_;
+    private string birthday_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Google.Protobuf.WellKnownTypes.Timestamp Birthday {
+    public string Birthday {
       get { return birthday_; }
       set {
-        birthday_ = value;
+        birthday_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -707,7 +699,7 @@ namespace user {
       if (Password != other.Password) return false;
       if (Firstname != other.Firstname) return false;
       if (Lastname != other.Lastname) return false;
-      if (!object.Equals(Birthday, other.Birthday)) return false;
+      if (Birthday != other.Birthday) return false;
       if (PictureUrl != other.PictureUrl) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Height, other.Height)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Weight, other.Weight)) return false;
@@ -723,7 +715,7 @@ namespace user {
       if (Password.Length != 0) hash ^= Password.GetHashCode();
       if (Firstname.Length != 0) hash ^= Firstname.GetHashCode();
       if (Lastname.Length != 0) hash ^= Lastname.GetHashCode();
-      if (birthday_ != null) hash ^= Birthday.GetHashCode();
+      if (Birthday.Length != 0) hash ^= Birthday.GetHashCode();
       if (PictureUrl.Length != 0) hash ^= PictureUrl.GetHashCode();
       if (Height != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Height);
       if (Weight != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Weight);
@@ -761,9 +753,9 @@ namespace user {
         output.WriteRawTag(42);
         output.WriteString(Lastname);
       }
-      if (birthday_ != null) {
+      if (Birthday.Length != 0) {
         output.WriteRawTag(50);
-        output.WriteMessage(Birthday);
+        output.WriteString(Birthday);
       }
       if (PictureUrl.Length != 0) {
         output.WriteRawTag(58);
@@ -804,8 +796,8 @@ namespace user {
       if (Lastname.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Lastname);
       }
-      if (birthday_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Birthday);
+      if (Birthday.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Birthday);
       }
       if (PictureUrl.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(PictureUrl);
@@ -845,11 +837,8 @@ namespace user {
       if (other.Lastname.Length != 0) {
         Lastname = other.Lastname;
       }
-      if (other.birthday_ != null) {
-        if (birthday_ == null) {
-          birthday_ = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-        }
-        Birthday.MergeFrom(other.Birthday);
+      if (other.Birthday.Length != 0) {
+        Birthday = other.Birthday;
       }
       if (other.PictureUrl.Length != 0) {
         PictureUrl = other.PictureUrl;
@@ -895,10 +884,7 @@ namespace user {
             break;
           }
           case 50: {
-            if (birthday_ == null) {
-              birthday_ = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(birthday_);
+            Birthday = input.ReadString();
             break;
           }
           case 58: {

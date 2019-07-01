@@ -24,14 +24,13 @@ namespace movement_record {
     static MovementRecordReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVtb3ZlbWVudF9yZWNvcmQucHJvdG8SD21vdmVtZW50X3JlY29yZBofZ29v",
-            "Z2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byJYCg5Nb3ZlbWVudFJlY29y",
-            "ZBIMCgRuYW1lGAEgASgJEigKBGRhdGUYAiABKAsyGi5nb29nbGUucHJvdG9i",
-            "dWYuVGltZXN0YW1wEg4KBndlaWdodBgDIAEoASIrChtEZWxldGVNb3ZlbWVu",
-            "dFJlY29yZFJlcXVlc3QSDAoEbmFtZRgBIAEoCUIjWg9tb3ZlbWVudF9yZWNv",
-            "cmSqAg9tb3ZlbWVudF9yZWNvcmRiBnByb3RvMw=="));
+            "ChVtb3ZlbWVudF9yZWNvcmQucHJvdG8SD21vdmVtZW50X3JlY29yZCI8Cg5N",
+            "b3ZlbWVudFJlY29yZBIMCgRuYW1lGAEgASgJEgwKBGRhdGUYAiABKAkSDgoG",
+            "d2VpZ2h0GAMgASgBIisKG0RlbGV0ZU1vdmVtZW50UmVjb3JkUmVxdWVzdBIM",
+            "CgRuYW1lGAEgASgJQiNaD21vdmVtZW50X3JlY29yZKoCD21vdmVtZW50X3Jl",
+            "Y29yZGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
+          new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::movement_record.MovementRecord), global::movement_record.MovementRecord.Parser, new[]{ "Name", "Date", "Weight" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::movement_record.DeleteMovementRecordRequest), global::movement_record.DeleteMovementRecordRequest.Parser, new[]{ "Name" }, null, null, null)
@@ -67,7 +66,7 @@ namespace movement_record {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public MovementRecord(MovementRecord other) : this() {
       name_ = other.name_;
-      date_ = other.date_ != null ? other.date_.Clone() : null;
+      date_ = other.date_;
       weight_ = other.weight_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -90,12 +89,12 @@ namespace movement_record {
 
     /// <summary>Field number for the "date" field.</summary>
     public const int DateFieldNumber = 2;
-    private global::Google.Protobuf.WellKnownTypes.Timestamp date_;
+    private string date_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Google.Protobuf.WellKnownTypes.Timestamp Date {
+    public string Date {
       get { return date_; }
       set {
-        date_ = value;
+        date_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -124,7 +123,7 @@ namespace movement_record {
         return true;
       }
       if (Name != other.Name) return false;
-      if (!object.Equals(Date, other.Date)) return false;
+      if (Date != other.Date) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Weight, other.Weight)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -133,7 +132,7 @@ namespace movement_record {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (date_ != null) hash ^= Date.GetHashCode();
+      if (Date.Length != 0) hash ^= Date.GetHashCode();
       if (Weight != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Weight);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -152,9 +151,9 @@ namespace movement_record {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (date_ != null) {
+      if (Date.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteMessage(Date);
+        output.WriteString(Date);
       }
       if (Weight != 0D) {
         output.WriteRawTag(25);
@@ -171,8 +170,8 @@ namespace movement_record {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (date_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Date);
+      if (Date.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Date);
       }
       if (Weight != 0D) {
         size += 1 + 8;
@@ -191,11 +190,8 @@ namespace movement_record {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.date_ != null) {
-        if (date_ == null) {
-          date_ = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-        }
-        Date.MergeFrom(other.Date);
+      if (other.Date.Length != 0) {
+        Date = other.Date;
       }
       if (other.Weight != 0D) {
         Weight = other.Weight;
@@ -216,10 +212,7 @@ namespace movement_record {
             break;
           }
           case 18: {
-            if (date_ == null) {
-              date_ = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(date_);
+            Date = input.ReadString();
             break;
           }
           case 25: {
