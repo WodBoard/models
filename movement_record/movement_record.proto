@@ -12,3 +12,7 @@ message MovementRecord {
     google.protobuf.Timestamp date = 2;
 	double weight = 3;
 };
+
+message DeleteMovementRecordRequest {
+	string name = 1;
+}
