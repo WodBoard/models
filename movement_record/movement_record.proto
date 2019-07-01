@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package movement_record;
+
+/*import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";*/
+
+option go_package = "movement_record";
+option csharp_namespace = "movement_record";
+
+message MovementRecord {
+	string Name;
+    Date Date;
+	float64 Weight;
+};

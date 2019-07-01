@@ -10,13 +10,13 @@ option csharp_namespace = "user";
 
 message User {
     string email = 1;
-    string username = 2;
     string firstname = 3;
     string lastname = 4;
     google.protobuf.Timestamp birthday = 5;
     string picture_url = 6;
     double height = 7;
     double weight = 8;
+	string affiliatedBoxName = 9;
 }
 
 message Login {

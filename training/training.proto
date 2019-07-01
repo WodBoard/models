@@ -8,28 +8,21 @@ import "google/protobuf/timestamp.proto";*/
 option go_package = "training";
 option csharp_namespace = "training";
 
-enum MovementType {
-    WEIGHTLIFTING = 0;
-    GYM = 1;
-	CARDIO = 2;
-}
-
 enum TrainingType {
-	FOR_TIME = 0;
-	AMRAP = 1;
-	EMOM = 2;
-	TABATA = 3;
-	FOR_QUALITY = 4;
-	AFSAP = 5;
-}
-
-message Exercise {
-    MovementType Movement = 1;
-    string Name;
+	Undefined = 0;
+	FOR_TIME = 1;
+	AMRAP = 2;
+	EMOM = 3;
+	TABATA = 4;
+	FOR_QUALITY = 5;
+	AFRAP = 6;
 }
 
 message Training {
 	TrainingType Type;
-    repeated Exercise exercises = 1;
-	int36 TimeCap;
+	string Name;
+	Date Date;
+	string Score;
+    string Notes;
+	float64 TimeCap;
 };
