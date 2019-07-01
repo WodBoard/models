@@ -24,21 +24,18 @@ namespace training {
     static TrainingReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg50cmFpbmluZy5wcm90bxIIdHJhaW5pbmciQgoIRXhlcmNpc2USKAoIbW92",
-            "ZW1lbnQYASABKA4yFi50cmFpbmluZy5Nb3ZlbWVudFR5cGUSDAoEbmFtZRgC",
-            "IAEoCSJ3CghUcmFpbmluZxIMCgRuYW1lGAEgASgJEiQKBHR5cGUYAiABKA4y",
-            "Fi50cmFpbmluZy5UcmFpbmluZ1R5cGUSJQoJZXhlcmNpc2VzGAMgAygLMhIu",
-            "dHJhaW5pbmcuRXhlcmNpc2USEAoIdGltZV9jYXAYBCABKAUiJQoVRGVsZXRl",
-            "VHJhaW5pbmdSZXF1ZXN0EgwKBG5hbWUYASABKAkqNgoMTW92ZW1lbnRUeXBl",
-            "EhEKDVdFSUdIVExJRlRJTkcQABIHCgNHWU0QARIKCgZDQVJESU8QAipZCgxU",
-            "cmFpbmluZ1R5cGUSDAoIRk9SX1RJTUUQABIJCgVBTVJBUBABEggKBEVNT00Q",
-            "AhIKCgZUQUJBVEEQAxIPCgtGT1JfUVVBTElUWRAEEgkKBUFGU0FQEAVCFVoI",
-            "dHJhaW5pbmeqAgh0cmFpbmluZ2IGcHJvdG8z"));
+            "Cg50cmFpbmluZy5wcm90bxIIdHJhaW5pbmcifAoIVHJhaW5pbmcSDAoEbmFt",
+            "ZRgBIAEoCRIMCgRkYXRlGAIgASgJEiQKBHR5cGUYAyABKA4yFi50cmFpbmlu",
+            "Zy5UcmFpbmluZ1R5cGUSEAoIdGltZV9jYXAYBCABKAUSDQoFc2NvcmUYBSAB",
+            "KAkSDQoFbm90ZXMYBiABKAkiJQoVRGVsZXRlVHJhaW5pbmdSZXF1ZXN0EgwK",
+            "BG5hbWUYASABKAkqaAoMVHJhaW5pbmdUeXBlEg0KCVVOREVGSU5FRBAAEgwK",
+            "CEZPUl9USU1FEAESCQoFQU1SQVAQAhIICgRFTU9NEAMSCgoGVEFCQVRBEAQS",
+            "DwoLRk9SX1FVQUxJVFkQBRIJCgVBRlJBUBAGQhVaCHRyYWluaW5nqgIIdHJh",
+            "aW5pbmdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::training.MovementType), typeof(global::training.TrainingType), }, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::training.Exercise), global::training.Exercise.Parser, new[]{ "Movement", "Name" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::training.Training), global::training.Training.Parser, new[]{ "Name", "Type", "Exercises", "TimeCap" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::training.TrainingType), }, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::training.Training), global::training.Training.Parser, new[]{ "Name", "Date", "Type", "TimeCap", "Score", "Notes" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::training.DeleteTrainingRequest), global::training.DeleteTrainingRequest.Parser, new[]{ "Name" }, null, null, null)
           }));
     }
@@ -46,181 +43,19 @@ namespace training {
 
   }
   #region Enums
-  public enum MovementType {
-    [pbr::OriginalName("WEIGHTLIFTING")] Weightlifting = 0,
-    [pbr::OriginalName("GYM")] Gym = 1,
-    [pbr::OriginalName("CARDIO")] Cardio = 2,
-  }
-
   public enum TrainingType {
-    [pbr::OriginalName("FOR_TIME")] ForTime = 0,
-    [pbr::OriginalName("AMRAP")] Amrap = 1,
-    [pbr::OriginalName("EMOM")] Emom = 2,
-    [pbr::OriginalName("TABATA")] Tabata = 3,
-    [pbr::OriginalName("FOR_QUALITY")] ForQuality = 4,
-    [pbr::OriginalName("AFSAP")] Afsap = 5,
+    [pbr::OriginalName("UNDEFINED")] Undefined = 0,
+    [pbr::OriginalName("FOR_TIME")] ForTime = 1,
+    [pbr::OriginalName("AMRAP")] Amrap = 2,
+    [pbr::OriginalName("EMOM")] Emom = 3,
+    [pbr::OriginalName("TABATA")] Tabata = 4,
+    [pbr::OriginalName("FOR_QUALITY")] ForQuality = 5,
+    [pbr::OriginalName("AFRAP")] Afrap = 6,
   }
 
   #endregion
 
   #region Messages
-  public sealed partial class Exercise : pb::IMessage<Exercise> {
-    private static readonly pb::MessageParser<Exercise> _parser = new pb::MessageParser<Exercise>(() => new Exercise());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Exercise> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::training.TrainingReflection.Descriptor.MessageTypes[0]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Exercise() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Exercise(Exercise other) : this() {
-      movement_ = other.movement_;
-      name_ = other.name_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Exercise Clone() {
-      return new Exercise(this);
-    }
-
-    /// <summary>Field number for the "movement" field.</summary>
-    public const int MovementFieldNumber = 1;
-    private global::training.MovementType movement_ = 0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::training.MovementType Movement {
-      get { return movement_; }
-      set {
-        movement_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 2;
-    private string name_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as Exercise);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Exercise other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Movement != other.Movement) return false;
-      if (Name != other.Name) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Movement != 0) hash ^= Movement.GetHashCode();
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Movement != 0) {
-        output.WriteRawTag(8);
-        output.WriteEnum((int) Movement);
-      }
-      if (Name.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Name);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Movement != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Movement);
-      }
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Exercise other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Movement != 0) {
-        Movement = other.Movement;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            movement_ = (global::training.MovementType) input.ReadEnum();
-            break;
-          }
-          case 18: {
-            Name = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
   public sealed partial class Training : pb::IMessage<Training> {
     private static readonly pb::MessageParser<Training> _parser = new pb::MessageParser<Training>(() => new Training());
     private pb::UnknownFieldSet _unknownFields;
@@ -229,7 +64,7 @@ namespace training {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::training.TrainingReflection.Descriptor.MessageTypes[1]; }
+      get { return global::training.TrainingReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -247,9 +82,11 @@ namespace training {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Training(Training other) : this() {
       name_ = other.name_;
+      date_ = other.date_;
       type_ = other.type_;
-      exercises_ = other.exercises_.Clone();
       timeCap_ = other.timeCap_;
+      score_ = other.score_;
+      notes_ = other.notes_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -269,8 +106,19 @@ namespace training {
       }
     }
 
+    /// <summary>Field number for the "date" field.</summary>
+    public const int DateFieldNumber = 2;
+    private string date_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Date {
+      get { return date_; }
+      set {
+        date_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "type" field.</summary>
-    public const int TypeFieldNumber = 2;
+    public const int TypeFieldNumber = 3;
     private global::training.TrainingType type_ = 0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::training.TrainingType Type {
@@ -278,16 +126,6 @@ namespace training {
       set {
         type_ = value;
       }
-    }
-
-    /// <summary>Field number for the "exercises" field.</summary>
-    public const int ExercisesFieldNumber = 3;
-    private static readonly pb::FieldCodec<global::training.Exercise> _repeated_exercises_codec
-        = pb::FieldCodec.ForMessage(26, global::training.Exercise.Parser);
-    private readonly pbc::RepeatedField<global::training.Exercise> exercises_ = new pbc::RepeatedField<global::training.Exercise>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::training.Exercise> Exercises {
-      get { return exercises_; }
     }
 
     /// <summary>Field number for the "time_cap" field.</summary>
@@ -298,6 +136,28 @@ namespace training {
       get { return timeCap_; }
       set {
         timeCap_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "score" field.</summary>
+    public const int ScoreFieldNumber = 5;
+    private string score_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Score {
+      get { return score_; }
+      set {
+        score_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "notes" field.</summary>
+    public const int NotesFieldNumber = 6;
+    private string notes_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Notes {
+      get { return notes_; }
+      set {
+        notes_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -315,9 +175,11 @@ namespace training {
         return true;
       }
       if (Name != other.Name) return false;
+      if (Date != other.Date) return false;
       if (Type != other.Type) return false;
-      if(!exercises_.Equals(other.exercises_)) return false;
       if (TimeCap != other.TimeCap) return false;
+      if (Score != other.Score) return false;
+      if (Notes != other.Notes) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -325,9 +187,11 @@ namespace training {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Date.Length != 0) hash ^= Date.GetHashCode();
       if (Type != 0) hash ^= Type.GetHashCode();
-      hash ^= exercises_.GetHashCode();
       if (TimeCap != 0) hash ^= TimeCap.GetHashCode();
+      if (Score.Length != 0) hash ^= Score.GetHashCode();
+      if (Notes.Length != 0) hash ^= Notes.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -345,14 +209,25 @@ namespace training {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
+      if (Date.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Date);
+      }
       if (Type != 0) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(24);
         output.WriteEnum((int) Type);
       }
-      exercises_.WriteTo(output, _repeated_exercises_codec);
       if (TimeCap != 0) {
         output.WriteRawTag(32);
         output.WriteInt32(TimeCap);
+      }
+      if (Score.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Score);
+      }
+      if (Notes.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(Notes);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -365,12 +240,20 @@ namespace training {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
+      if (Date.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Date);
+      }
       if (Type != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
-      size += exercises_.CalculateSize(_repeated_exercises_codec);
       if (TimeCap != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(TimeCap);
+      }
+      if (Score.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Score);
+      }
+      if (Notes.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Notes);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -386,12 +269,20 @@ namespace training {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
+      if (other.Date.Length != 0) {
+        Date = other.Date;
+      }
       if (other.Type != 0) {
         Type = other.Type;
       }
-      exercises_.Add(other.exercises_);
       if (other.TimeCap != 0) {
         TimeCap = other.TimeCap;
+      }
+      if (other.Score.Length != 0) {
+        Score = other.Score;
+      }
+      if (other.Notes.Length != 0) {
+        Notes = other.Notes;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -408,16 +299,24 @@ namespace training {
             Name = input.ReadString();
             break;
           }
-          case 16: {
-            type_ = (global::training.TrainingType) input.ReadEnum();
+          case 18: {
+            Date = input.ReadString();
             break;
           }
-          case 26: {
-            exercises_.AddEntriesFrom(input, _repeated_exercises_codec);
+          case 24: {
+            type_ = (global::training.TrainingType) input.ReadEnum();
             break;
           }
           case 32: {
             TimeCap = input.ReadInt32();
+            break;
+          }
+          case 42: {
+            Score = input.ReadString();
+            break;
+          }
+          case 50: {
+            Notes = input.ReadString();
             break;
           }
         }
@@ -434,7 +333,7 @@ namespace training {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::training.TrainingReflection.Descriptor.MessageTypes[2]; }
+      get { return global::training.TrainingReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

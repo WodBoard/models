@@ -25,21 +25,21 @@ namespace user {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cgp1c2VyLnByb3RvEgR1c2VyGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1w",
-            "LnByb3RvIscBCgRVc2VyEg0KBWVtYWlsGAEgASgJEhAKCHVzZXJuYW1lGAIg",
-            "ASgJEhEKCWZpcnN0bmFtZRgDIAEoCRIQCghsYXN0bmFtZRgEIAEoCRIsCghi",
-            "aXJ0aGRheRgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASEwoL",
-            "cGljdHVyZV91cmwYBiABKAkSDgoGaGVpZ2h0GAcgASgBEg4KBndlaWdodBgI",
-            "IAEoARIWCg5hZmZpbGlhdGVkX2JveBgJIAEoCSIoCgVMb2dpbhINCgVlbWFp",
-            "bBgBIAEoCRIQCghwYXNzd29yZBgCIAEoCSLbAQoGU2lnbnVwEg0KBWVtYWls",
-            "GAEgASgJEhAKCHVzZXJuYW1lGAIgASgJEhAKCHBhc3N3b3JkGAMgASgJEhEK",
-            "CWZpcnN0bmFtZRgEIAEoCRIQCghsYXN0bmFtZRgFIAEoCRIsCghiaXJ0aGRh",
-            "eRgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASEwoLcGljdHVy",
-            "ZV91cmwYByABKAkSDgoGaGVpZ2h0GAggASgCEg4KBndlaWdodBgJIAEoAhIW",
-            "Cg5hZmZpbGlhdGVkX2JveBgKIAEoCUINWgR1c2VyqgIEdXNlcmIGcHJvdG8z"));
+            "LnByb3RvIrUBCgRVc2VyEg0KBWVtYWlsGAEgASgJEhEKCWZpcnN0bmFtZRgC",
+            "IAEoCRIQCghsYXN0bmFtZRgDIAEoCRIsCghiaXJ0aGRheRgEIAEoCzIaLmdv",
+            "b2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASEwoLcGljdHVyZV91cmwYBiABKAkS",
+            "DgoGaGVpZ2h0GAcgASgBEg4KBndlaWdodBgIIAEoARIWCg5hZmZpbGlhdGVk",
+            "X2JveBgJIAEoCSIoCgVMb2dpbhINCgVlbWFpbBgBIAEoCRIQCghwYXNzd29y",
+            "ZBgCIAEoCSLbAQoGU2lnbnVwEg0KBWVtYWlsGAEgASgJEhAKCHVzZXJuYW1l",
+            "GAIgASgJEhAKCHBhc3N3b3JkGAMgASgJEhEKCWZpcnN0bmFtZRgEIAEoCRIQ",
+            "CghsYXN0bmFtZRgFIAEoCRIsCghiaXJ0aGRheRgGIAEoCzIaLmdvb2dsZS5w",
+            "cm90b2J1Zi5UaW1lc3RhbXASEwoLcGljdHVyZV91cmwYByABKAkSDgoGaGVp",
+            "Z2h0GAggASgCEg4KBndlaWdodBgJIAEoAhIWCg5hZmZpbGlhdGVkX2JveBgK",
+            "IAEoCUINWgR1c2VyqgIEdXNlcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::user.User), global::user.User.Parser, new[]{ "Email", "Username", "Firstname", "Lastname", "Birthday", "PictureUrl", "Height", "Weight", "AffiliatedBox" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::user.User), global::user.User.Parser, new[]{ "Email", "Firstname", "Lastname", "Birthday", "PictureUrl", "Height", "Weight", "AffiliatedBox" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::user.Login), global::user.Login.Parser, new[]{ "Email", "Password" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::user.Signup), global::user.Signup.Parser, new[]{ "Email", "Username", "Password", "Firstname", "Lastname", "Birthday", "PictureUrl", "Height", "Weight", "AffiliatedBox" }, null, null, null)
           }));
@@ -74,7 +74,6 @@ namespace user {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public User(User other) : this() {
       email_ = other.email_;
-      username_ = other.username_;
       firstname_ = other.firstname_;
       lastname_ = other.lastname_;
       birthday_ = other.birthday_ != null ? other.birthday_.Clone() : null;
@@ -101,19 +100,8 @@ namespace user {
       }
     }
 
-    /// <summary>Field number for the "username" field.</summary>
-    public const int UsernameFieldNumber = 2;
-    private string username_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Username {
-      get { return username_; }
-      set {
-        username_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "firstname" field.</summary>
-    public const int FirstnameFieldNumber = 3;
+    public const int FirstnameFieldNumber = 2;
     private string firstname_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Firstname {
@@ -124,7 +112,7 @@ namespace user {
     }
 
     /// <summary>Field number for the "lastname" field.</summary>
-    public const int LastnameFieldNumber = 4;
+    public const int LastnameFieldNumber = 3;
     private string lastname_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Lastname {
@@ -135,7 +123,7 @@ namespace user {
     }
 
     /// <summary>Field number for the "birthday" field.</summary>
-    public const int BirthdayFieldNumber = 5;
+    public const int BirthdayFieldNumber = 4;
     private global::Google.Protobuf.WellKnownTypes.Timestamp birthday_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Google.Protobuf.WellKnownTypes.Timestamp Birthday {
@@ -203,7 +191,6 @@ namespace user {
         return true;
       }
       if (Email != other.Email) return false;
-      if (Username != other.Username) return false;
       if (Firstname != other.Firstname) return false;
       if (Lastname != other.Lastname) return false;
       if (!object.Equals(Birthday, other.Birthday)) return false;
@@ -218,7 +205,6 @@ namespace user {
     public override int GetHashCode() {
       int hash = 1;
       if (Email.Length != 0) hash ^= Email.GetHashCode();
-      if (Username.Length != 0) hash ^= Username.GetHashCode();
       if (Firstname.Length != 0) hash ^= Firstname.GetHashCode();
       if (Lastname.Length != 0) hash ^= Lastname.GetHashCode();
       if (birthday_ != null) hash ^= Birthday.GetHashCode();
@@ -243,20 +229,16 @@ namespace user {
         output.WriteRawTag(10);
         output.WriteString(Email);
       }
-      if (Username.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Username);
-      }
       if (Firstname.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(18);
         output.WriteString(Firstname);
       }
       if (Lastname.Length != 0) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(26);
         output.WriteString(Lastname);
       }
       if (birthday_ != null) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(34);
         output.WriteMessage(Birthday);
       }
       if (PictureUrl.Length != 0) {
@@ -285,9 +267,6 @@ namespace user {
       int size = 0;
       if (Email.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Email);
-      }
-      if (Username.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Username);
       }
       if (Firstname.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Firstname);
@@ -323,9 +302,6 @@ namespace user {
       }
       if (other.Email.Length != 0) {
         Email = other.Email;
-      }
-      if (other.Username.Length != 0) {
-        Username = other.Username;
       }
       if (other.Firstname.Length != 0) {
         Firstname = other.Firstname;
@@ -367,18 +343,14 @@ namespace user {
             break;
           }
           case 18: {
-            Username = input.ReadString();
-            break;
-          }
-          case 26: {
             Firstname = input.ReadString();
             break;
           }
-          case 34: {
+          case 26: {
             Lastname = input.ReadString();
             break;
           }
-          case 42: {
+          case 34: {
             if (birthday_ == null) {
               birthday_ = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }

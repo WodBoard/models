@@ -18,10 +18,10 @@ enum TrainingType {
 
 message Training {
 	string name = 1;
-	// date = 2;
+	string date = 2;
 	TrainingType type = 3;
 	int32 time_cap = 4;
-	int32 score = 5;
+	string score = 5;
 	string notes = 6;
 };
 
