@@ -2,14 +2,11 @@ syntax = "proto3";
 
 package training;
 
-/*import "google/protobuf/empty.proto";
-import "google/protobuf/timestamp.proto";*/
-
 option go_package = "training";
 option csharp_namespace = "training";
 
 enum TrainingType {
-	Undefined = 0;
+	UNDEFINED = 0;
 	FOR_TIME = 1;
 	AMRAP = 2;
 	EMOM = 3;
@@ -18,11 +15,16 @@ enum TrainingType {
 	AFRAP = 6;
 }
 
+
 message Training {
-	TrainingType Type;
-	string Name;
-	Date Date;
-	string Score;
-    string Notes;
-	float64 TimeCap;
+	string name = 1;
+	// date = 2;
+	TrainingType type = 3;
+	int32 time_cap = 4;
+	int32 score = 5;
+	string notes = 6;
 };
+
+message DeleteTrainingRequest {
+	string name = 1;
+}

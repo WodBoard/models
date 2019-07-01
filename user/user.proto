@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package user;
 
-//import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "user";
@@ -16,7 +15,11 @@ message User {
     string picture_url = 6;
     double height = 7;
     double weight = 8;
+<<<<<<< HEAD:user/model.proto
 	string affiliatedBoxName = 9;
+=======
+    string affiliated_box = 9;
+>>>>>>> 786f419d21724a047fcb0e9241976ffdec5d6b9e:user/user.proto
 }
 
 message Login {
@@ -34,4 +37,5 @@ message Signup {
     string picture_url = 7;
     float height = 8;
     float weight = 9;
+    string affiliated_box = 10;
 }
